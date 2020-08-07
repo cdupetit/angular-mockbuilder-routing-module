@@ -4,25 +4,25 @@ import { MockBuilder } from "ng-mocks";
 
 import { RouterModule } from "@angular/router";
 
-import { Hello2Component } from "../hello2/hello2.component";
-import { HelloComponent } from "./hello.component";
+import { HelloComponent } from "../hello/hello.component";
+import { Hello2Component } from "./hello2.component";
 import { HelloModule } from "../hello.module";
 
-describe('HelloComponent', () => {
-  let fixture: ComponentFixture<HelloComponent>;
-  let component: HelloComponent;
+describe('Hello2Component', () => {
+  let fixture: ComponentFixture<Hello2Component>;
+  let component: Hello2Component;
 
-  describe('mock HelloComponent', () => {
+  describe('mock Hello2Component', () => {
     beforeEach(() =>
       TestBed.configureTestingModule(
-        MockBuilder(HelloComponent, HelloModule)
+        MockBuilder(Hello2Component, HelloModule)
           .replace(RouterModule, RouterTestingModule)
           .build()
       )
     );
 
     beforeEach(() => {
-      fixture = TestBed.createComponent(HelloComponent);
+      fixture = TestBed.createComponent(Hello2Component);
       component = fixture.componentInstance;
     });
 
@@ -30,19 +30,19 @@ describe('HelloComponent', () => {
       expect(component).toBeTruthy();
     });
   });
-  
-  describe('mock HelloComponent with mock Hello2Component', () => {
+
+  describe('mock Hello2Component with mock HelloComponent', () => {
     beforeEach(() =>
       TestBed.configureTestingModule(
-        MockBuilder(HelloComponent, HelloModule)
-          .mock(Hello2Component)
+        MockBuilder(Hello2Component, HelloModule)
+          .mock(HelloComponent)
           .replace(RouterModule, RouterTestingModule)
           .build()
       )
     );
 
     beforeEach(() => {
-      fixture = TestBed.createComponent(HelloComponent);
+      fixture = TestBed.createComponent(Hello2Component);
       component = fixture.componentInstance;
     });
 

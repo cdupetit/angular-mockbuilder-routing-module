@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { HelloModule } from './hello/hello.module';
-import { HelloComponent } from './hello/hello.component';
 
 const routes: Routes = [
   {
@@ -12,19 +11,13 @@ const routes: Routes = [
   },
   {
     path: 'hello',
-    component: HelloComponent
+    loadChildren: () => import('./hello/hello.module').then(m => m.HelloModule),
   },
 ];
 
 @NgModule({
-  imports: [
-    HelloModule,
-    RouterModule.forRoot(routes)
-  ],
+  imports: [ RouterModule.forRoot(routes) ],
   declarations: [],
-  exports: [
-    HelloModule,
-    RouterModule
-  ]
+  exports: [ RouterModule ]
 })
 export class AppRoutingModule { }

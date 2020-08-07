@@ -22,7 +22,8 @@ import {
  
 // stuff to test
 import './app/app.component.spec.ts'
-import './app/hello/hello.component.spec.ts'
+import './app/hello/hello/hello.component.spec.ts'
+import './app/hello/hello2/hello2.component.spec.ts'
 
 jasmine.getEnv().configure({random: false});
 bootstrap();
